@@ -22,7 +22,10 @@ void Ex3(char *str){
 	int maxLength = 0;
 	int preIndex = 0;
 	for (int i = 0; i < length; i++) {
-		if (str[i] == ' ') {
+		if (str[i] == ' ' || i + 1 == length) {
+			if (i + 1 == length){
+				i++;
+			}
 			if (minLength > i - preIndex) {
 				minLength = i - preIndex;
 				for (int j = 0; j < minLength; ++j) {
