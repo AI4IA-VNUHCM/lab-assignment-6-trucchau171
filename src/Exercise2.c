@@ -32,8 +32,8 @@ void Ex2(int n, char *str[]){
 			if (compare(str[i], str[j]) > 0) {
 				char temp[10];
 				strcpy(temp, str[i]);
-				str[i] = str[j];
-				str[j] = temp;
+				strcpy(str[i], str[j]);
+				strcpy(str[j], temp);
 			}
 		}
 	}
