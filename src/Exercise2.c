@@ -14,6 +14,19 @@ Ex:
 
 void Ex2(int n, char *str[]){
 	//Your codes here
+	for (int i = 0; i < n - 1; ++i){
+		for (int j = i + 1; j < n; ++j){
+			if (strcmp(str[i], str[j]) > 0) {
+				char temp[10];
+				strcpy(temp, str[i]);
+				str[i] = str[j];
+				str[j] = temp;
+			}
+		}
+	}
+	for (int i = 0; i < n; ++i){
+		printf("%s ", str[i]);
+	}
 	
 }
 
