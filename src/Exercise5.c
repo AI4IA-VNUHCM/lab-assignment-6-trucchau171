@@ -17,6 +17,43 @@ Ex:
 
 void Ex5(char *str){
 	//Your codes here
+	int length = strlen(str);
+	if (length % 2 == 1) {
+		printf("Invalid!");
+		return;
+	}
+
+	for (int i = 0; i < length / 2; ++i) {
+		// printf("%c %c, ", str[i], str[length - i - 1]);
+		switch (str[i])
+		{
+		case '(':
+			if (str[length - i - 1] != ')') {
+				printf("Invalid!");
+				return;
+			}
+			break;
+
+		case '{':
+			if (str[length - i - 1] != '}') {
+				printf("Invalid!");
+				return;
+			}
+			break;
+
+		case '[':
+			if (str[length - i - 1] != ']') {
+				printf("Invalid!");
+				return;
+			}
+			break;
+		
+		default:
+			break;
+		}
+	}
+	
+	printf("Valid!");
 	
 }
 

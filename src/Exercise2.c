@@ -12,8 +12,38 @@ Ex:
 #include <math.h>
 #include <string.h>
 
+int compare(char a[], char b[]) {
+	int length = strlen(a) > strlen(b) ? strlen(a) : strlen(a);
+	for (int i = 0; i < length; ++i) {
+		if (a[i] > b[i]) {
+			return 1;
+		}
+		if (a[i] < b[i]) {
+			return -1;
+		}
+	}
+	return 0;
+}
+
+void swap(char **str1_ptr, char **str2_ptr)
+{
+  char *temp = *str1_ptr;
+  *str1_ptr = *str2_ptr;
+  *str2_ptr = temp;
+}
+
 void Ex2(int n, char *str[]){
 	//Your codes here
+	for (int i = 0; i < n - 1; ++i){
+		for (int j = i + 1; j < n; ++j){
+			if (compare(str[i], str[j]) > 0) {
+				swap(&str[i], &str[j]);
+			}
+		}
+	}
+	for (int i = 0; i < n; ++i){
+		printf("%s ", str[i]);
+	}
 	
 }
 
