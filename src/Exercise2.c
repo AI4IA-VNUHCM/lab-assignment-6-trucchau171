@@ -25,15 +25,19 @@ int compare(char a[], char b[]) {
 	return 0;
 }
 
+void swap(char **str1_ptr, char **str2_ptr)
+{
+  char *temp = *str1_ptr;
+  *str1_ptr = *str2_ptr;
+  *str2_ptr = temp;
+}
+
 void Ex2(int n, char *str[]){
 	//Your codes here
 	for (int i = 0; i < n - 1; ++i){
 		for (int j = i + 1; j < n; ++j){
 			if (compare(str[i], str[j]) > 0) {
-				char temp[10];
-				strcpy(temp, str[i]);
-				strcpy(str[i], str[j]);
-				strcpy(str[j], temp);
+				swap(&str[i], &str[j]);
 			}
 		}
 	}
